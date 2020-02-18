@@ -9,8 +9,6 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-    - name: env
-      run: env
     - name: install goole test
       run: vcpkg install gtest
     - name: configure
