@@ -1,5 +1,11 @@
 cmake_minimum_required(VERSION 3.13)
-set(CMAKE_TOOLCHAIN_FILE $ENV{VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake)
+
+if (VCPKG_INSTALLATION_ROOT)
+    set(CMAKE_TOOLCHAIN_FILE $ENV{VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake)
+else()
+    set(CMAKE_TOOLCHAIN_FILE $ENV{HOME}/vcpkg/scripts/buildsystems/vcpkg.cmake)
+endif()
+
 project(demo VERSION 0.1.0)
 
 set(CMAKE_CXX_STANDARD 20)
